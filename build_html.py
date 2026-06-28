@@ -80,7 +80,7 @@ small.note {{ color:#666; }}
 <h1>Compress-at-the-Gate: Query-Aware Classical Prompt Compression<br>
 as a Zero-Footprint Context-Engineering Primitive for LLM Gateways</h1>
 <div class="authors">Raushan</div>
-<div class="affil">Mesh API / AI Fiesta · raushan@aifiesta.ai<br>
+<div class="affil">Mesh API / AI Fiesta · raushan@meshapi.ai<br>
 <small class="note">Author list is a placeholder for the camera-ready version.</small></div>
 
 <div class="abstract">
