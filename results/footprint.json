@@ -1,0 +1,14 @@
+{
+  "classical": {
+    "n_params": 0,
+    "param_mb_fp32": 0.0,
+    "note": "no model weights; TF-IDF/graph state is transient per-request"
+  },
+  "neural_distilgpt2": {
+    "n_params": 81912576,
+    "param_mb_fp32": 312.4716796875,
+    "param_mb_loaded": 312.4716796875
+  },
+  "process_peak_rss_mb": 1163.078125,
+  "machine": "macOS-26.2-arm64-arm-64bit"
+}

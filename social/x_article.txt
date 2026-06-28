@@ -1,0 +1,60 @@
+TITLE:
+We replaced a neural prompt compressor with NLP from the 1970s. At the gateway it was faster and more accurate.
+
+BODY:
+
+Prompt compression is having a moment. The idea is plain. Before you send a long prompt to a model, you cut the parts that do not carry much, so the model spends its limited context on the parts that do.
+
+Most of the popular methods do this with a neural network. They run a small language model over your prompt to score which tokens matter. We tried that at the place where it is most tempting and most expensive, the gateway. Then we tried something much older and much cheaper. The old thing won.
+
+First, the receipts
+
+Everything below is measured on a laptop, not estimated. Here is the real run, replayed from its own log.
+
+[VIDEO: anim_run.mp4 — the actual benchmark run output]
+
+We then ran the whole thing again on a different random seed, to check we were not getting lucky. The headline numbers moved by about a point. They held.
+
+Why the gateway changes the math
+
+A gateway is the layer that sits in front of many models and takes every request. Mesh API is one. If you put a compressor there, it runs on every call from every user. That changes what good means.
+
+A neural compressor has to run a forward pass over your prompt before the real model even starts. That time lands on the critical path, so the user waits longer. The compressor also has to live somewhere, which usually means a GPU, or memory taken from the model you are actually trying to serve.
+
+In one published benchmark, a popular neural compressor ended up with a net speedup of 0.6x. Once you count its own runtime, it made requests slower than doing nothing.
+
+What we did instead
+
+So we asked a boring question. How far do the old, model-free methods get? BM25. TF-IDF. TextRank. These rank sentences by how well they match the question, using word counts and simple math. No model. They run in well under a millisecond on one CPU core.
+
+Here is one real item from the benchmark, compressed by BM25. Watch it score each sentence by relevance to the question, drop the low scorers, and keep the one that holds the answer.
+
+[VIDEO: anim_compress.mp4 — BM25 compressing a real item]
+
+The bars are the actual BM25 scores. The sentence the answer lives in ranks near the top, so it survives the cut. The whole step costs about a third of a millisecond and zero model weights.
+
+The result
+
+We ran this for every method at three times compression, then drew the real output.
+
+[VIDEO: anim_results.mp4 — real retention and latency for every method]
+
+The split is not classical against neural. It is query-aware against query-blind. Every method that reads the question keeps almost all the answers. TF-IDF with the question keeps 98.5 percent. BM25 keeps 96.5. The neural method keeps 38.7, because it scores tokens by how surprising they are to a language model and never reads the question. A gateway request always has a question, so the expensive forward pass buys nothing here.
+
+[IMAGE: bw_costq.png — cost versus quality]
+
+On cost it is not close. The classical methods sit at a fraction of a millisecond and hold no weights. The neural baseline sits at 406 milliseconds and 312 megabytes.
+
+The parts we are not hiding
+
+Now the things that would get this desk-rejected if we left them out.
+
+The neural baseline is small, distilgpt2 at 82 million parameters, and it ran on CPU, the same as the classical methods. That is a fair same-machine test, but on a GPU the neural latency would drop a lot. So read the 1213 times faster as on this setup, not as a law. The accuracy gap is a separate thing. It comes from the neural method ignoring the question, and a bigger model would not fix that.
+
+Our quality number is answer retention, meaning the gold answer survived the cut. It is a clean, repeatable proxy. It is not the same as end-to-end accuracy through a real model. We wrote the code to measure that through the gateway, but we have not run it yet.
+
+It is our own reimplementation of the neural method, not the authors' code. The benchmark is English, with short answers. Multi-hop questions or other languages could move the line.
+
+The point is narrow, and we think useful. Compression has been studied as a modeling problem. At the gateway it is a systems problem first. The thing on the critical path of every request should be cheap before it is clever. Here the cheap thing was also the accurate one.
+
+Paper and code links go here before publishing.

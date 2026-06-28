@@ -1,0 +1,13 @@
+{
+  "n_items": 200,
+  "n_distractors": 7,
+  "mean_passages": 8.0,
+  "mean_src_tokens": 1307.095,
+  "median_src_tokens": 1283.5,
+  "min_src_tokens": 833,
+  "max_src_tokens": 2006,
+  "machine": "macOS-26.2-arm64-arm-64bit",
+  "processor": "arm",
+  "python": "3.11.2",
+  "gold_position": "middle"
+}

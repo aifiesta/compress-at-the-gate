@@ -1,0 +1,274 @@
+{
+ "item": {
+  "question": "How many yards was the McManus field goal?",
+  "answer": "33",
+  "gold_sentence_idx": 9,
+  "n_sentences": 16,
+  "src_tokens": 679,
+  "sentences": [
+   {
+    "i": 0,
+    "text": "NASA's CALIPSO satellite has measured the amount of dust transported by wind from the Sahara to the Amazon: an average 182 million tons of dust are windblown out of the Sahara each year, at 15 degrees west longitude, across 1,600 miles (2,600 km) over the Atlantic Ocean (some dust falls into the Atlantic), then at 35 degrees West longitude at the eastern coast of South America, 27.7 million tons (15%) of dust fall over the Amazon basin, 132 million tons of dust remain in the air, 43 million tons of dust are windblown and falls on the Caribbean Sea, past 75 degrees west longitude."
+   },
+   {
+    "i": 1,
+    "text": "The central highlands were already home to over a million members of the Kikuyu people, most of whom had no land claims in European terms and lived as itinerant farmers."
+   },
+   {
+    "i": 2,
+    "text": "To protect their interests, the settlers banned the growing of coffee, introduced a hut tax, and the landless were granted less and less land in exchange for their labour."
+   },
+   {
+    "i": 3,
+    "text": "A massive exodus to the cities ensued as their ability to provide a living from the land dwindled."
+   },
+   {
+    "i": 4,
+    "text": "There were 80,000 white settlers living in Kenya in the 1950s."
+   },
+   {
+    "i": 5,
+    "text": "After a punt from both teams, Carolina got on track with a 9-play, 73-yard scoring drive."
+   },
+   {
+    "i": 6,
+    "text": "Newton completed 4 of 4 passes for 51 yards and rushed twice for 25 yards, while Jonathan Stewart finished the drive with a 1-yard touchdown run, cutting the score to 10\u20137 with 11:28 left in the second quarter."
+   },
+   {
+    "i": 7,
+    "text": "Later on, Broncos receiver Jordan Norwood received Brad Nortman's short 28-yard punt surrounded by Panthers players, but none of them attempted to make a tackle, apparently thinking Norwood had called a fair catch."
+   },
+   {
+    "i": 8,
+    "text": "Norwood had not done so, and with no resistance around him, he took off for a Super Bowl record 61-yard return before Mario Addison dragged him down on the Panthers 14-yard line."
+   },
+   {
+    "i": 9,
+    "text": "Despite Denver's excellent field position, they could not get the ball into the end zone, so McManus kicked a 33-yard field goal that increased their lead to 13\u20137."
+   },
+   {
+    "i": 10,
+    "text": "Tesla exhibited a pre-atomic understanding of physics in his writings; he disagreed with the theory of atoms being composed of smaller subatomic particles, stating there was no such thing as an electron creating an electric charge (he believed that if electrons existed at all, they were some fourth state of matter or \"sub-atom\" that could only exist in an experimental vacuum and that they had nothing to do with electricity).:249 Tesla believed that atoms are immutable\u2014they could not change state or be split in any way."
+   },
+   {
+    "i": 11,
+    "text": "He was a believer in the 19th century concept of an all pervasive \"ether\" that transmitted electrical energy."
+   },
+   {
+    "i": 12,
+    "text": "Overactive immune responses comprise the other end of immune dysfunction, particularly the autoimmune disorders."
+   },
+   {
+    "i": 13,
+    "text": "Here, the immune system fails to properly distinguish between self and non-self, and attacks part of the body."
+   },
+   {
+    "i": 14,
+    "text": "Under normal circumstances, many T cells and antibodies react with \"self\" peptides."
+   },
+   {
+    "i": 15,
+    "text": "One of the functions of specialized cells (located in the thymus and bone marrow) is to present young lymphocytes with self antigens produced throughout the body and to eliminate those cells that recognize self-antigens, preventing autoimmunity."
+   }
+  ]
+ },
+ "methods": {
+  "BM25+Q": {
+   "label": "BM25 (reads the question)",
+   "query_aware": true,
+   "scores": [
+    0.04606903411451947,
+    0.0381682606037017,
+    0.0444691104749119,
+    0.043255007042206264,
+    0.036258367035792154,
+    0.0,
+    0.40359918259855854,
+    0.0,
+    0.02572208866782892,
+    1.0,
+    0.13773473108086698,
+    0.30382378572348123,
+    0.04526589356809001,
+    0.042779894836719366,
+    0.38185315615576115,
+    0.04191662341631719
+   ],
+   "kept": [
+    6,
+    9,
+    10,
+    11,
+    14
+   ],
+   "answer_kept": true,
+   "kept_tokens": 233
+  },
+  "Neural": {
+   "label": "Selective Context (ignores the question)",
+   "query_aware": false,
+   "scores": [
+    0.2639930442063285,
+    0.37881317929550695,
+    0.4631999999313144,
+    0.4851242810653725,
+    0.013647491098557096,
+    0.8718382824334185,
+    0.03970037954820139,
+    0.634940516957237,
+    0.366259249271224,
+    0.0,
+    0.4704322532603995,
+    0.4718308643854624,
+    1.0,
+    0.051139627667223964,
+    0.3438085786462045,
+    0.22003132236406664
+   ],
+   "kept": [
+    3,
+    5,
+    7,
+    11,
+    12
+   ],
+   "answer_kept": false,
+   "kept_tokens": 128
+  }
+ },
+ "run_log": [
+  "======================================================================",
+  "MESH ROUTING-LAYER COMPRESSION BENCHMARK",
+  "======================================================================",
+  "[1/5] Building multi-document SQuAD benchmark (n=200, distractors=7) ...",
+  "      200 items, mean 1307 tokens, 8 passages each.",
+  "  wrote results/meta.json",
+  "[2/5] Quality eval -- classical methods x 5 ratios ...",
+  "      Lead           @keep0.33: retention=0.160",
+  "      Random         @keep0.33: retention=0.380",
+  "      TF-IDF         @keep0.33: retention=0.545",
+  "      TF-IDF+Q       @keep0.33: retention=0.545",
+  "      TextRank       @keep0.33: retention=0.360",
+  "      TextRank+Q     @keep0.33: retention=0.360",
+  "      Centroid+MMR   @keep0.33: retention=0.960",
+  "      BM25+Q         @keep0.33: retention=0.965",
+  "[3/5] Quality eval -- neural SelectiveContext (distilgpt2, CPU) x 3 ratios on 150 items ...",
+  "      keep=0.20: retention=0.220 (84.3s)",
+  "      keep=0.33: retention=0.387 (84.1s)",
+  "      keep=0.50: retention=0.580 (82.8s)",
+  "  wrote results/quality.json",
+  "[4/5] Latency sweep over sizes (256, 512, 1024, 2048, 4096) tokens ...",
+  "      Lead           @1024tok: 0.045 ms/call",
+  "      Random         @1024tok: 0.048 ms/call",
+  "      TF-IDF         @1024tok: 0.787 ms/call",
+  "      TF-IDF+Q       @1024tok: 0.989 ms/call",
+  "      TextRank       @1024tok: 1.676 ms/call",
+  "      TextRank+Q     @1024tok: 5.955 ms/call",
+  "      Centroid+MMR   @1024tok: 1.560 ms/call",
+  "      BM25+Q         @1024tok: 0.335 ms/call",
+  "      SelectiveContext(neural) @1024tok: 406.3 ms/call",
+  "  wrote results/latency.json",
+  "[5/5] Footprint ...",
+  "  wrote results/footprint.json",
+  "======================================================================",
+  "DONE in 350.7s. Results in /Users/raushan/Desktop/to delete/rough_repo/mesh-routing-research/results/",
+  "======================================================================",
+  "Generating figures ...",
+  "  wrote figures/fig_latency.{pdf,png}",
+  "  wrote figures/fig_retention.{pdf,png}",
+  "  wrote figures/fig_cost_quality.{pdf,png}",
+  "  wrote figures/fig_footprint.{pdf,png}",
+  "Done."
+ ],
+ "charts": {
+  "retention": [
+   {
+    "m": "BM25+Q",
+    "v": 96.5,
+    "neural": false
+   },
+   {
+    "m": "TF-IDF+Q",
+    "v": 98.5,
+    "neural": false
+   },
+   {
+    "m": "TextRank+Q",
+    "v": 97.0,
+    "neural": false
+   },
+   {
+    "m": "Centroid+MMR",
+    "v": 96.0,
+    "neural": false
+   },
+   {
+    "m": "TF-IDF",
+    "v": 54.5,
+    "neural": false
+   },
+   {
+    "m": "Random",
+    "v": 38.0,
+    "neural": false
+   },
+   {
+    "m": "TextRank",
+    "v": 36.0,
+    "neural": false
+   },
+   {
+    "m": "Lead",
+    "v": 16.0,
+    "neural": false
+   },
+   {
+    "m": "SelectiveContext(neural)",
+    "v": 38.7,
+    "neural": true
+   }
+  ],
+  "latency": [
+   {
+    "m": "Lead",
+    "v": 0.045,
+    "neural": false
+   },
+   {
+    "m": "BM25+Q",
+    "v": 0.335,
+    "neural": false
+   },
+   {
+    "m": "TF-IDF",
+    "v": 0.787,
+    "neural": false
+   },
+   {
+    "m": "TF-IDF+Q",
+    "v": 0.989,
+    "neural": false
+   },
+   {
+    "m": "Centroid+MMR",
+    "v": 1.56,
+    "neural": false
+   },
+   {
+    "m": "TextRank",
+    "v": 1.676,
+    "neural": false
+   },
+   {
+    "m": "TextRank+Q",
+    "v": 5.955,
+    "neural": false
+   },
+   {
+    "m": "SelectiveContext(neural)",
+    "v": 406.323,
+    "neural": true
+   }
+  ]
+ }
+}

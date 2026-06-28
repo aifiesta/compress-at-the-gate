@@ -1,0 +1,25 @@
+\begin{table}[t]
+\centering
+\caption{Head-to-head at $\sim$3$\times$ compression (keep 33\% of sentences) on the
+multi-document QA benchmark (200 items, mean 1307 tokens). Latency is median
+ms/request for a 1024-token context on Apple M3 Pro CPU. Footprint is resident model
+weights. Query-aware lexical methods (\textbf{bold}) are both the most faithful and
+among the cheapest; the neural baseline is query-agnostic.}
+\label{tab:main}
+\small
+\begin{tabular}{llrrrr}
+\toprule
+Method & Family & Answer ret.\ (\%) & Token red.\ (\%) & Latency (ms) & Footprint (MB) \\
+\midrule
+Lead & classical & 16.0 & 67.2 & 0.04 & $\approx$0 \\
+Random & classical & 38.0 & 66.4 & 0.05 & $\approx$0 \\
+TF-IDF & classical & 54.5 & 49.3 & 0.79 & $\approx$0 \\
+TF-IDF$+$Q & classical & 98.5 & 51.3 & 0.99 & $\approx$0 \\
+TextRank & classical & 36.0 & 63.6 & 1.68 & $\approx$0 \\
+TextRank$+$Q & classical & 97.0 & 63.9 & 5.96 & $\approx$0 \\
+\textbf{Centroid$+$MMR} & classical & \textbf{96.0} & 68.7 & 1.56 & $\approx$0 \\
+\textbf{BM25$+$Q} & classical & \textbf{96.5} & 62.5 & 0.33 & $\approx$0 \\
+Selective Context (neural) & neural & 38.7 & 66.9 & 406.32 & 312 \\
+\bottomrule
+\end{tabular}
+\end{table}
